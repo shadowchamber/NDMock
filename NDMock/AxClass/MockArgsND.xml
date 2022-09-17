@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>MockArgsND</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+public class MockArgsND
+{
+    private int callCount;
+    private Map args;
+    private anytype resValue;
+
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>new</Name>
+				<Source><![CDATA[
+    public void new()
+    {
+        callCount = 0;
+        args = new Map(Types::String, Types::AnyType);
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>getCallCount</Name>
+				<Source><![CDATA[
+    public int getCallCount()
+    {
+        return callCount;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>call</Name>
+				<Source><![CDATA[
+    public void call()
+    {
+        callCount++;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>getArg</Name>
+				<Source><![CDATA[
+    public anytype getArg(str _fieldName)
+    {
+        return args.lookup(_fieldName);
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>getResult</Name>
+				<Source><![CDATA[
+    public anytype getResult()
+    {
+        return resValue;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>setResult</Name>
+				<Source><![CDATA[
+    public void setResult(anytype _value)
+    {
+        resValue = _value;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>addArg</Name>
+				<Source><![CDATA[
+    public void addArg(str _fieldName, anytype _value)
+    {
+        args.add(_fieldName, _value);
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>setArg</Name>
+				<Source><![CDATA[
+    public void setArg(str _fieldName, anytype _value)
+    {
+        if (args.exists(_fieldName))
+        {
+            args.remove(_fieldName);
+            args.add(_fieldName, _value);
+        }
+        else
+        {
+            args.add(_fieldName, _value);
+        }
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>withArg</Name>
+				<Source><![CDATA[
+    public MockArgsND withArg(str _fieldName, anytype _value)
+    {
+        this.setArg(_fieldName, _value);
+
+        return this;
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>
