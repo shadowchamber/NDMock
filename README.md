@@ -13,7 +13,7 @@ NDMock is Extension (ISV Module) for Microsoft Dynamics 365 for finance and oper
 
 ## Contribute
 
-Contributions to WHSRF are welcome.  Here is how you can contribute to WHSRF:
+Contributions to NDMock are welcome.  Here is how you can contribute to NDMock:
 
 * [Submit bugs](https://github.com/shadowchamber/NDMock/issues) and help us verify fixes.
 * [Submit pull requests](https://github.com/shadowchamber/NDMock/pulls) for bug fixes and features and discuss existing proposals
@@ -26,7 +26,7 @@ Code licensed under the [GNU Lesser General Public License v2.1](https://github.
 
 ## Contact Us
 
-If you have questions about WHSRF, or you would like to reach out to us about an issue you're having or for development advice as you work on a WHSRF issue, you can reach us as follows:
+If you have questions about NDMock, or you would like to reach out to us about an issue you're having or for development advice as you work on a NDMock issue, you can reach us as follows:
 
 * Open an [issue](https://github.com/shadowchamber/NDMock/issues/new)
 * Discuss NDMock with the team and the community via the Discord link above
