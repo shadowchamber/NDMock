@@ -2,3 +2,7 @@
 /BuildProjectResult.log
 /BuildProjectResult.xml
 /bin
+/.vs
+/Projects/NDMock/obj/Debug
+/BuildModelResult.xml
+/BuildModelResult.log
