@@ -8,6 +8,7 @@ public class MockArgsND
     private int callCount;
     private Map args;
     private anytype resValue;
+    private boolean isOriginal = false;
 
 }
 ]]></Declaration>
@@ -19,6 +20,18 @@ public class MockArgsND
     {
         callCount = 0;
         args = new Map(Types::String, Types::AnyType);
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>original</Name>
+				<Source><![CDATA[
+    public boolean original(boolean _isOriginal = isOriginal)
+    {
+        isOriginal = _isOriginal;
+
+        return isOriginal;
     }
 
 ]]></Source>
