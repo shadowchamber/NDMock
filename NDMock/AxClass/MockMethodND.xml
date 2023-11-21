@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>MockMethodND</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// mocking argument class
+/// </summary>
+public class MockMethodND
+{
+    private int callCount;
+    private Map args;
+    private anytype resValue;
+    private boolean isOriginal = false;
+
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>new</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// creates instance of the class
+    /// </summary>
+    protected void new()
+    {
+        callCount = 0;
+        args = new Map(Types::String, Types::AnyType);
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>construct</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// creates instance of the class
+    /// </summary>
+    /// <returns>class instance as MockMethodND</returns>
+    public static MockMethodND construct()
+    {
+        return new MockMethodND();
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>original</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// indicates or assign if mock is using original method
+    /// </summary>
+    /// <param name = "_isOriginal">true for original use</param>
+    /// <returns>true if selected for using original method</returns>
+    public boolean original(boolean _isOriginal = isOriginal)
+    {
+        isOriginal = _isOriginal;
+
+        return isOriginal;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>getCallCount</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// returns method call count
+    /// </summary>
+    /// <returns>call count as int</returns>
+    public int getCallCount()
+    {
+        return callCount;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>call</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// increments call counter
+    /// </summary>
+    public void call()
+    {
+        callCount++;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>getArg</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// gets argument value
+    /// </summary>
+    /// <param name = "_argName">method argument name</param>
+    /// <returns>argument value as anytype</returns>
+    public anytype getArg(str _argName)
+    {
+        return args.lookup(_argName);
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>getResult</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// gets method result value
+    /// </summary>
+    /// <returns>method result value as anytype</returns>
+    public anytype getResult()
+    {
+        return resValue;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>setResult</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// sets method result type
+    /// </summary>
+    /// <param name = "_value">result type as anytype</param>
+    public void setResult(anytype _value)
+    {
+        resValue = _value;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>addArg</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// adds method argument with value
+    /// </summary>
+    /// <param name = "_argName">argument name as string</param>
+    /// <param name = "_value">value for argument on a call as anytype</param>
+    public void addArg(str _argName, anytype _value)
+    {
+        args.add(_argName, _value);
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>setArg</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// sets method argument value
+    /// </summary>
+    /// <param name = "_argName">argument name as string</param>
+    /// <param name = "_value">value for argument on a call as anytype</param>
+    public void setArg(str _argName, anytype _value)
+    {
+        if (args.exists(_argName))
+        {
+            args.remove(_argName);
+            args.add(_argName, _value);
+        }
+        else
+        {
+            args.add(_argName, _value);
+        }
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>withArg</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// assign method arg and value to be used as fluent api
+    /// </summary>
+    /// <param name = "_argName">argument name as string</param>
+    /// <param name = "_value">value for argument on a call as anytype</param>
+    /// <returns>instance of argument object MockMethodND</returns>
+    public MockMethodND withArg(str _argName, anytype _value)
+    {
+        this.setArg(_argName, _value);
+
+        return this;
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>MockMethodListND</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Mock argument list storage class
+/// </summary>
+public class MockMethodListND
+{
+    private Map map;
+
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>new</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// creates instance of the class
+    /// </summary>
+    protected void new()
+    {
+        map = new Map(Types::String, Types::Class);
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>construct</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// creates instance of the class
+    /// </summary>
+    /// <returns>instance of the class MockMethodListND</returns>
+    public static MockMethodListND construct()
+    {
+        return new MockMethodListND();
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>call</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// log method call
+    /// </summary>
+    /// <param name = "_methodName">method name as string</param>
+    /// <returns>argument object as MockMethodND</returns>
+    public MockMethodND call(str _methodName)
+    {
+        MockMethodND res = this.method(_methodName);
+
+        res.call();
+
+        return res;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>method</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// returns argument object for the required method
+    /// </summary>
+    /// <param name = "_methodName">method name as string</param>
+    /// <returns>argument object as MockMethodND</returns>
+    public MockMethodND method(str _methodName)
+    {
+        if (!map.exists(_methodName))
+        {
+            MockMethodND args = MockMethodND::construct();
+
+            map.add(_methodName, args);
+        }
+
+        MockMethodND res = map.lookup(_methodName);
+
+        return res;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>checkCreate</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// checks if the argument list created and if not creates it
+    /// </summary>
+    /// <param name = "_list">list as MockMethodListND object</param>
+    /// <returns>created or existed list of arguments as MockMethodListND</returns>
+    public static MockMethodListND checkCreate(MockMethodListND _list)
+    {
+        MockMethodListND res = _list;
+
+        if (res == null)
+        {
+            res = new MockMethodListND();
+        }
+
+        return res;
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>
