@@ -35,15 +35,15 @@
     <Folder Include="Classes\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AxClass\MockArgsListND">
+    <Content Include="AxClass\MockMethodListND">
       <SubType>Content</SubType>
-      <Name>MockArgsListND</Name>
-      <Link>Classes\MockArgsListND</Link>
+      <Name>MockMethodListND</Name>
+      <Link>Classes\MockMethodListND</Link>
     </Content>
-    <Content Include="AxClass\MockArgsND">
+    <Content Include="AxClass\MockMethodND">
       <SubType>Content</SubType>
-      <Name>MockArgsND</Name>
-      <Link>Classes\MockArgsND</Link>
+      <Name>MockMethodND</Name>
+      <Link>Classes\MockMethodND</Link>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.Common.targets" />
